@@ -43,7 +43,7 @@ client.on('messageCreate', async message => {
         .setDescription('## __Welcome to this support panel!__\n\n**Click on the button below to create a ticket, staff team will respond to your request**\n## `/report` to report a user')
         .setThumbnail('https://media.discordapp.net/attachments/470983675157151755/1251585397738176613/0KejAlR.png?ex=6698a47c&is=669752fc&hm=db4b3728c8238a9c9ce11990b68128ff45335666211fb941421689e0abd188f6&=&format=webp&quality=lossless')
         .setColor('#00FF00')
-        .setFooter('FLOW Support | Discord.gg/flw')
+        .setFooter({ text: 'FLOW Support | Discord.gg/flw' })
         .setTimestamp();
 
       const row = new MessageActionRow()
@@ -98,6 +98,8 @@ client.on('messageCreate', async message => {
 
 client.on('interactionCreate', async interaction => {
   if (!interaction.isButton()) return;
+
+  const userId = interaction.user.id;
 
   if (interaction.customId === 'create_ticket') {
     if (interaction.member.roles.cache.has(NON_VERIFIED_ROLE_ID)) {
