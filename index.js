@@ -4,6 +4,7 @@ keepAlive();
 const { Client, Intents, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+require('./anticrash')(client);
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
