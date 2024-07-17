@@ -4,9 +4,10 @@ keepAlive();
 const { Client, Intents, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-require('./anticrash')(client);
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+require('./anticrash')(client);
+
 
 const PREFIXES = ['!', '!t']; // Multiple prefixes for commands
 const STAFF_ROLE_ID = '1226167494226608198';
